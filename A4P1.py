@@ -28,4 +28,5 @@ if __name__ == "__main__":
     makeIndex(True)
     avgEachDb(Q1[0],100,100,100,100,100,Q1[1], Q1[2])
     avgEachDb(Q2[0],100,100,100,100,100,Q2[1], Q2[2])
+    makeIndex(False)
 
