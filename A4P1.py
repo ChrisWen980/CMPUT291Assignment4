@@ -6,8 +6,6 @@ Ahmad, Chris
 Query 1: ____________________________________________________________
 Query 2: ____________________________________________________________
 '''
-
-import sqlite3
 from averager import avgEachDb
     
 if __name__ == "__main__":
