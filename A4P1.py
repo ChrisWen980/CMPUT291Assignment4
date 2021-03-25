@@ -5,15 +5,19 @@ Ahmad, Chris
 '''
 from averager import *
 
-Q1 = ["SELECT partPrice FROM Parts WHERE partNumber = :code;", "partNumber", 1]
-Q2 = ["SELECT partPrice FROM Parts WHERE needsPart = :code;", "needsPart", 2]
+Q1Query = "SELECT partPrice FROM Parts WHERE partNumber = :code;"
+Q2Query = "SELECT partPrice FROM Parts WHERE needsPart = :code;"
 indexCreationStatement = "CREATE INDEX idxNeedsPart ON Parts (needsPart)"
+Q1ColumnGenerateFrom = "partNumber"
+Q2ColumnGenerateFrom = "needsPart"
+Q1Num = 1
+Q2Num = 2
 
 if __name__ == "__main__":
     dropAllIndexes()
-    avgEachDb(Q1[0],50,50,50,10,5,Q1[1], Q1[2])
-    avgEachDb(Q2[0],50,50,50,10,5,Q2[1], Q2[2])
+    avgEachDb(Q1Query,50,50,50,10,5,Q1ColumnGenerateFrom, Q1Num)
+    avgEachDb(Q2Query,50,50,50,10,5,Q2ColumnGenerateFrom, Q2Num)
     makeIndex(indexCreationStatement)
-    avgEachDb(Q1[0],50,50,50,10,5,Q1[1], Q1[2])
-    avgEachDb(Q2[0],50,50,50,10,5,Q2[1], Q2[2])
+    avgEachDb(Q1Query,50,50,50,10,5,Q1ColumnGenerateFrom, Q1Num)
+    avgEachDb(Q2Query,50,50,50,10,5,Q2ColumnGenerateFrom, Q2Num)
 

@@ -5,11 +5,12 @@ Ahmad, Chris
 '''
 from averager import *
 
-Q3 = ["SELECT AVG(partPrice) FROM Parts GROUP BY madeIn;", 3]
+Q3Query = "SELECT AVG(partPrice) FROM Parts GROUP BY madeIn;"
 indexCreationStatement = "CREATE INDEX idxMadeIn ON Parts (madeIn)"
+Q3Num = 3
 
 if __name__ == "__main__":
     dropAllIndexes()
-    avgEachDbSimple(Q3[0],100,100,100,100,100,Q3[1])
+    avgEachDbSimple(Q3Query,100,100,100,100,100,Q3Num)
     makeIndex(indexCreationStatement)
-    avgEachDbSimple(Q3[0],100,100,100,100,100,Q3[1])
+    avgEachDbSimple(Q3Query,100,100,100,100,100,Q3Num)

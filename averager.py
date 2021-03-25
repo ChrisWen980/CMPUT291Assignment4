@@ -124,3 +124,6 @@ def avgEachDbSimple(strng, numTimesDB1, numTimesDB2, numTimesDB3, numTimesDB4, n
         conn.close()
         ans[i] /= dbNumTimesList[i]
         print(f"{dbList[i]}: Ran Query {n} {dbNumTimesList[i]} times and got {ans[i]*1000} ms on average")
+
+if __name__ ==  "__main__":
+    dropAllIndexes()

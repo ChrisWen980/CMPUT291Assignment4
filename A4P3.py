@@ -6,9 +6,9 @@ Ahmad, Chris
 from averager import *
 
 Q4Query = "SELECT MAX(partPrice) FROM Parts WHERE madeIn = :code;"
+indexCreationStatement = "CREATE INDEX idxQ4Optimize ON Parts (partPrice)"
 Q4ColumnGenerateFrom = "madeIn"
 Q4Num = 4
-indexCreationStatement = "CREATE INDEX idxQ4Optimize ON Parts (partPrice)"
 
 if __name__ == "__main__":
     dropAllIndexes()
