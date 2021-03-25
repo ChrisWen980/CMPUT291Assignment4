@@ -2,6 +2,8 @@
 Winter 2021 Cmput 291
 Assignment 4, Part 2
 Ahmad, Chris
+
+Query3: "SELECT AVG(partPrice) FROM Parts GROUP BY madeIn;"
 '''
 from averager import *
 
@@ -11,6 +13,6 @@ Q3Num = 3
 
 if __name__ == "__main__":
     dropAllIndexes()
-    avgEachDbSimple(Q3Query,100,100,100,100,100,Q3Num)
+    avgEachDbSimple(Q3Query,50,50,50,10,5,Q3Num)
     makeIndex(indexCreationStatement)
     avgEachDbSimple(Q3Query,100,100,100,100,100,Q3Num)

@@ -2,6 +2,10 @@
 Winter 2021 Cmput 291
 Assignment 4, Part 1
 Ahmad, Chris
+
+Query1: "SELECT partPrice FROM Parts WHERE partNumber = :code;"
+Query2: "SELECT partPrice FROM Parts WHERE needsPart = :code;"
+"code" variable is randomly selected from partNumber or needsPart of database executed on
 '''
 from averager import *
 
