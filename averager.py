@@ -12,7 +12,7 @@ def getChoiceList(column, c):
     '''
     gives a random element of column from database.
     '''
-    c.execute(f"Select {column} from Parts")
+    c.execute("Select {} from Parts".format(column))
     return c.fetchall()
 
 def makeIndex(strrng):
@@ -24,7 +24,7 @@ def makeIndex(strrng):
         conn = sqlite3.connect(db)
         c = conn.cursor()
         c.execute(strrng)
-        print(f"{db}: Index has been created.")
+        print("{}: Index has been created.".format(db))
         conn.commit()
         conn.close()
 
@@ -64,8 +64,8 @@ def dropAllIndexes():
         c = conn.cursor()
         idxList = ["idxMadeIn", "idxNeedsPart", "idxQ4Optimize", "idxQ6Optimize"]
         for idx in idxList:
-            c.execute(f"DROP INDEX IF EXISTS {idx}")
-        print(f"{db}: All indexes have been dropped, if any existed.")
+            c.execute("DROP INDEX IF EXISTS {}".format(idx))
+        print("{}: All indexes have been dropped, if any existed.".format(db))
         conn.commit()
         conn.close()
 
@@ -87,7 +87,7 @@ def avgEachDb(strng, numTimesDB1, numTimesDB2, numTimesDB3, numTimesDB4, numTime
 
     for i in range(len(dbList)):
         if not dbNumTimesList[i]:
-            print(f"Skipped {dbList[i]} as {dbNumTimesList[i]} iterations performed")
+            print("Skipped {} as {} iterations performed".format(dbList[i], dbNumTimesList[i]))
             continue
         conn = sqlite3.connect(dbList[i])
         c = conn.cursor()
@@ -99,7 +99,7 @@ def avgEachDb(strng, numTimesDB1, numTimesDB2, numTimesDB3, numTimesDB4, numTime
             ans[i] += timeNeeded(strng, c, choice)
         conn.close()
         ans[i] /= dbNumTimesList[i]
-        print(f"{dbList[i]}: Ran Query {n} {dbNumTimesList[i]} times and got {ans[i]*1000} ms on average")
+        print("{}: Ran Query {} {} times and got {} ms on average".format(dbList[i], n, dbNumTimesList, ans[i]*1000))
 
 
 def avgEachDbSimple(strng, numTimesDB1, numTimesDB2, numTimesDB3, numTimesDB4, numTimesDB5, n):
@@ -113,7 +113,7 @@ def avgEachDbSimple(strng, numTimesDB1, numTimesDB2, numTimesDB3, numTimesDB4, n
 
     for i in range(len(dbList)):
         if not dbNumTimesList[i]:
-            print(f"Skipped {dbList[i]} as {dbNumTimesList[i]} iterations performed")
+            print("Skipped {} as {} iterations performed".format(dbList[i], dbNumTimesList[i]))
             continue
         conn = sqlite3.connect(dbList[i])
         c = conn.cursor()
@@ -123,7 +123,7 @@ def avgEachDbSimple(strng, numTimesDB1, numTimesDB2, numTimesDB3, numTimesDB4, n
             ans[i] += timeNeededSimple(strng, c)
         conn.close()
         ans[i] /= dbNumTimesList[i]
-        print(f"{dbList[i]}: Ran Query {n} {dbNumTimesList[i]} times and got {ans[i]*1000} ms on average")
+        print("{}: Ran Query {} {} times and got {} ms on average".format(dbList[i], n, dbNumTimesList, ans[i]*1000))
 
 if __name__ ==  "__main__":
     dropAllIndexes()
