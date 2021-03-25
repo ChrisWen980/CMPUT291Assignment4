@@ -2,6 +2,8 @@
 Winter 2021 Cmput 291
 Assignment 4, Part 1
 Ahmad, Chris
+
+This file contains all functions used for this assignment.
 '''
 import sqlite3
 import sys
@@ -99,7 +101,7 @@ def avgEachDb(strng, numTimesDB1, numTimesDB2, numTimesDB3, numTimesDB4, numTime
             ans[i] += timeNeeded(strng, c, choice)
         conn.close()
         ans[i] /= dbNumTimesList[i]
-        print("{}: Ran Query {} {} times and got {} ms on average".format(dbList[i], n, dbNumTimesList, ans[i]*1000))
+        print("{}: Ran Query {} {} times and got {} ms on average".format(dbList[i], n, dbNumTimesList[i], ans[i]*1000))
 
 
 def avgEachDbSimple(strng, numTimesDB1, numTimesDB2, numTimesDB3, numTimesDB4, numTimesDB5, n):
@@ -123,7 +125,7 @@ def avgEachDbSimple(strng, numTimesDB1, numTimesDB2, numTimesDB3, numTimesDB4, n
             ans[i] += timeNeededSimple(strng, c)
         conn.close()
         ans[i] /= dbNumTimesList[i]
-        print("{}: Ran Query {} {} times and got {} ms on average".format(dbList[i], n, dbNumTimesList, ans[i]*1000))
+        print("{}: Ran Query {} {} times and got {} ms on average".format(dbList[i], n, dbNumTimesList[i], ans[i]*1000))
 
 if __name__ ==  "__main__":
     dropAllIndexes()
