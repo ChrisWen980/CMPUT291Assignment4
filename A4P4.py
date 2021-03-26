@@ -10,8 +10,8 @@ indexCreationStatement = "CREATE INDEX idxQ6Optimize ON Parts (needsPart);"
 from averager import *
 
 Q5Query = "SELECT COUNT(p.partNumber) FROM Parts p WHERE NOT EXISTS (SELECT p.needsPart WHERE p.partNumber = p.needsPart);"
-Q6Query = "SELECT COUNT(p.partNumber) FROM Parts p WHERE p.partNumber NOT IN (SELECT p.needsPart);"
-indexCreationStatement = "CREATE INDEX idxQ6Optimize ON Parts (needsPart, partnumber);"
+Q6Query = "SELECT COUNT(p.partNumber) FROM Parts p WHERE p.partNumber NOT IN (SELECT p.needsPart  WHERE p.partNumber = p.needsPart);"
+indexCreationStatement = "CREATE INDEX idxQ6Optimize ON Parts (needsPart, partNumber);"
 Q5Num = 5
 Q6Num = 6
 

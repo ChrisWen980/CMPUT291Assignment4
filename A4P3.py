@@ -5,12 +5,12 @@ Ahmad, Chris
 
 Query4 = "SELECT MAX(partPrice) FROM Parts WHERE madeIn = :code;"
 "code" is randomly sampled from column madeIn from the database the query is executed on.
-indexCreationStatement = "CREATE INDEX idxQ4Optimize ON Parts (partPrice)"
+indexCreationStatement = "CREATE INDEX idxQ4Optimize ON Parts (partPrice, madeIn)"
 '''
 from averager import *
 
 Q4Query = "SELECT MAX(partPrice) FROM Parts WHERE madeIn = :code;"
-indexCreationStatement = "CREATE INDEX idxQ4Optimize ON Parts (partPrice)"
+indexCreationStatement = "CREATE INDEX idxQ4Optimize ON Parts (partPrice, madeIn)"
 Q4ColumnGenerateFrom = "madeIn"
 Q4Num = 4
 
